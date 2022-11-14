@@ -1,0 +1,1 @@
+gcc main.c ./src/*.c -O1 -o sandwich -Wall -std=c99 -Wno-missing-braces -I include/ -L lib/ -lraylib -lopengl32 -lgdi32 -lwinmm

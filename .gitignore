@@ -1,1 +1,3 @@
 *.pyc
+zig/zig-cache/
+zig/zig-out/
