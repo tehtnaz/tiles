@@ -13,9 +13,8 @@ pub fn main() !void {
     raylib.InitWindow(1920, 1080, "Test");
     
     try stdout.print("dir: {s}\n", .{raylib.GetWorkingDirectory()});
-    var tex = raylib.LoadTexture("res/crate.png");
 
-    _ = try tile.newTileTexture(tex);
+    _ = try tile.newTileTexture(raylib.LoadTexture("res/crate.png"));
     _ = try tile.newTileTexture(raylib.LoadTexture("res/0.png"));
     _ = try tile.newTileTexture(raylib.LoadTexture("res/crate1.png"));
 
@@ -27,6 +26,7 @@ pub fn main() !void {
     _ = try tile.addNewTile(1);
     _ = try tile.addNewTile(3);
     _ = try tile.addNewTile(1);
+    _ = try tile.addNewTile(1);
     _ = try tile.addNewTile(0);
     _ = try tile.addNewTile(0);
     _ = try tile.addNewTile(1);
@@ -35,14 +35,10 @@ pub fn main() !void {
     _ = try tile.addNewTile(0);
     _ = try tile.addNewTile(0);
 
-
     while(!raylib.WindowShouldClose()){
         raylib.BeginDrawing();
             raylib.ClearBackground(raylib.RAYWHITE);
             try tile.drawTileVaried(4, 5, raylib.WHITE);
-            //tile.drawTileBackground(tile.Tile{.tileType = 0}, 1, raylib.WHITE);
-            //tile.drawTextureBackground(tex, 1, raylib.WHITE);
-
         raylib.EndDrawing();
     }
     try tile.unloadAllTileData();

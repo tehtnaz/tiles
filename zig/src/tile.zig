@@ -41,11 +41,13 @@ pub fn drawTileVaried(mapWidth: u32, scale: f32, tint: raylib.Color) !void{
     var temp: raylib.Texture2D = undefined;
     var posx: f32 = 0.0;
     var largestHeight: i32 = 0;
+    var index: usize = 0;
 
-    for(tileList.items) |selectedTile, index| {
+    //there IS a "index" in zig, but i'd still have to skip counting any failed items, so might as well manually use an index
+    for(tileList.items) |selectedTile| {
         //try stdout.print("ZIGTILE_ERROR: Tried rendering texture outside of tileTextureArray. Array Size: {} Requested index: {}\n", .{tileList.items.len, selectedTile.tileType});
         if(selectedTile.tileType >= tileTextureList.items.len){
-            try stdout.print("ZIGTILE_ERROR: Tried rendering texture outside of tileTextureArray. Array Size: {} Requested index: {}\n", .{tileList.items.len, selectedTile.tileType});
+            try stdout.print("ZIGTILE_ERROR: Tried rendering texture outside of tileTextureArray. Array Size: {} Requested index: {}\n", .{tileTextureList.items.len, selectedTile.tileType});
             continue;
         }else{
             temp = tileTextureList.items[selectedTile.tileType];
@@ -60,6 +62,8 @@ pub fn drawTileVaried(mapWidth: u32, scale: f32, tint: raylib.Color) !void{
         raylib.DrawTextureEx(temp, .{.x = posx, .y = @intToFloat(f32, ((index / mapWidth) * @intCast(usize, largestHeight))) * scale}, 0, scale, tint);
         posx += @intToFloat(f32, temp.width) * scale;
         try stdout.print("ZIGTILE_DEBUG: drawTileVaried - {} {} {}\n", .{posx, index % mapWidth, index});
+
+        index += 1;
     }
 }
 
