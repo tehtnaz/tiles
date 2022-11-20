@@ -1,3 +1,6 @@
 *.pyc
 zig/zig-cache/
 zig/zig-out/
+zig/src/c_src
+.vscode/settings.json
+c/sandwich

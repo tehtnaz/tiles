@@ -29,6 +29,7 @@ pub fn build(b: *std.build.Builder) !void {
             const rayBuild = @import("src/raylib/raylib/src/build.zig");
             const raylib = rayBuild.addRaylib(b, target);
             exe.linkLibrary(raylib);
+            //exe.addIncludePath("src/c_src/");
             exe.addIncludePath(raylibSrc);
             exe.addIncludePath(raylibSrc ++ "extras/");
             exe.addIncludePath(bindingSrc);
