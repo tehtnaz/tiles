@@ -10,3 +10,5 @@ required packages for python script:
 
 for zig, add external git repos
 - `git submodule update --init --recursive`
+
+for go, download raylib-go to vendor
