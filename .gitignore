@@ -4,3 +4,5 @@ zig/zig-out/
 zig/src/c_src
 .vscode/settings.json
 c/sandwich
+go/vendor/github.com
+go/tiles-example
