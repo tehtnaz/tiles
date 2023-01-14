@@ -6,3 +6,4 @@ zig/src/c_src
 c/sandwich
 go/vendor/github.com
 go/tiles-example
+c/include
